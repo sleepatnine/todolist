@@ -1,0 +1,85 @@
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 10px 10px;
+  border-radius: 5px;
+  flex-wrap: wrap;
+}
+
+.card:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.card__status {
+  display: flex;
+  align-items: center;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.card__status label {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 3px;
+  background-color: #eeeeee;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+input[type="checkbox"]:checked + label {
+  background-image: url("../../img/tick-square-svgrepo-com.svg");
+  background-size: cover;
+  background-position: center;
+}
+
+.card button {
+  border-radius: 3px;
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+}
+
+.card__title {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+.title__main {
+  font-size: 20px;
+  font-weight: 500;
+  color: #585858;
+  text-transform: none;
+}
+
+.title__date {
+  color: #83859a;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.card__commands {
+  display: flex;
+  justify-content: center;
+}
+
+.card__commands img {
+  width: 60%;
+}
+
+@media (max-width: 320px) {
+  .card__commands {
+    margin-top: 20px;
+  }
+}

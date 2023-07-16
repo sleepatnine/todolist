@@ -1,0 +1,20 @@
+.title {
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 44px;
+  color: #83859a;
+  padding: 30px 0;
+}
+
+.control-panel {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 320px) {
+  .control-panel {
+    flex-direction: column;
+  }
+}
