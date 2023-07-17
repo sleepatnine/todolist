@@ -78,7 +78,7 @@ input[type="checkbox"]:checked + label {
   width: 60%;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 440px) {
   .card__commands {
     margin-top: 20px;
   }
