@@ -51,6 +51,7 @@ export const Modal = () => {
     };
 
     setIdCounter((prevIdCounter) => prevIdCounter + 1);
+    setTitle('');
 
     dispatch({ type: Actions.CLOSE_TASK_MODAL });
     dispatch({ type: Actions.ADD_TODO, payload: data });

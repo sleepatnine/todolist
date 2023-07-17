@@ -1,6 +1,6 @@
 import "./App.css";
 
-import {  useCallback, useMemo, useState } from "react";
+import {  useCallback, useEffect, useMemo, useState } from "react";
 
 import { Container } from "./layouts/Container/Container";
 import { Header } from "./components/Header/Header";
@@ -13,9 +13,20 @@ function App() {
   const todosList = useTypedSelector((state) => state.todoItems);
   const [selectedFilter, setSelectedFilter] = useState<DropdownOption | null>(null);
 
-  const handleFilterChange = useCallback((option: DropdownOption | null) => {
+  const handleFilterChange = useCallback((option: DropdownOption) => {
     setSelectedFilter(option);
   }, [setSelectedFilter]);
+
+  useEffect(() => {
+    const storedTodosList = localStorage.getItem("todosList");
+    if (storedTodosList) {
+      setSelectedFilter(null);      
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('todosList', JSON.stringify(todosList));
+  }, [todosList]);
 
   const filteredCards = useMemo(() => {
     if (selectedFilter) {
@@ -30,11 +41,12 @@ function App() {
       return todosList;
     }
   }, [selectedFilter, todosList]);
+
   return (
     <>
       <Modal />
       <Container>
-        <Header  onChange={handleFilterChange}/>
+        <Header onChange={handleFilterChange}/>
         <div className="list">
           {filteredCards.length > 0 ? (
             filteredCards.map((todo) => (
